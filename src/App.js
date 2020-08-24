@@ -1,11 +1,13 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Header from './comps/header';
+import CreateContatct from './comps/createCont';
 
 function App() {
   return (
     <div>
-
+      <Header />
+      <CreateContatct />
     </div>
   );
 }
