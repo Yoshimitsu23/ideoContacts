@@ -1,42 +1,13 @@
 import React from 'react';
-import { useHistory, Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
-function CreateContatct(props) {
-    let history = useHistory();
-
-    let sendForm = (event) => {
-
-        event.preventDefault();
-
-        let bodyData = {
-            firstName: event.target.id_firstName.value,
-            lastName: event.target.id_lastName.value,
-            phone: event.target.id_phone.value,
-            email: event.target.id_email.value
-        }
-
-        let url = "https://ideo-contacts.herokuapp.com/contacts/add";
-
-        fetch(url, {
-            method: "POST",
-            body: JSON.stringify(bodyData),
-            headers: {
-                'content-type': "application/json"
-            }
-        })
-            .then(resp => resp.json())
-            .then(data => {
-                if (data) {
-                    history.push('/');
-                }
-            })
-    }
+function EditContatct(props) {
 
     return (
         <div className='mt-5'>
             <div className='container'>
-                <h2 className='display-4'>Add new contact</h2>
-                <form onSubmit={sendForm}>
+                <h2 className='display-4'>Edit contact</h2>
+                <form>
                     <div className="form-group">
                         <label>First name</label>
                         <input id="id_firstName" type="text" className="form-control" placeholder="John" />
@@ -55,7 +26,7 @@ function CreateContatct(props) {
                         <span className="validity"></span>
                     </div>
                     <div className="d-flex justify-content-between">
-                        <button className='btn btn-outline-primary'>Submit</button>
+                        <button className='btn btn-outline-primary'>Save changes</button>
                         <Link to="/" className='btn btn-outline-dark'>My contacts</Link>
                     </div>
                 </form>
@@ -64,4 +35,4 @@ function CreateContatct(props) {
     );
 }
 
-export default CreateContatct;
+export default EditContatct;
