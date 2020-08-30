@@ -22,7 +22,7 @@ function ContactsCards(props) {
             <div className='justify-content-between align-items-center'>
                 <Link to="/add" className='btn btn-outline-primary btn-sm float-right'>Add new contact</Link>
                 <h3 className='font-weight-light text-primary font-italic'><u>My Contacts list</u></h3>
-                <Link to={'/count'}><h5>Contacts count: {count}</h5></Link>
+                <Link to={{ pathname: '/count', state: { count } }} className='btn btn-link' > Contacts count: {count}</Link>
             </div><br />
             <div className='d-flex row'>
                 {
